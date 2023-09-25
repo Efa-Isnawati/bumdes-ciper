@@ -121,6 +121,7 @@
                               alt=""
                               class="w-100 mb-2"
                             />
+                            <div class="product-stock">Stok: {{ $product->stock }}</div>
                             <div class="product-title">{{ $product->name }}</div>
                             <div class="product-category">{{ $product->category->name }}</div>
                             <form action="{{ route('dashboard-product-delete', $product->id) }}" method="POST"

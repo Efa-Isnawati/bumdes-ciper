@@ -163,6 +163,17 @@
                       />
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Stok</label>
+                      <input
+                        type="number"
+                        name="stock"
+                        class="form-control"
+                        value="{{ $product->stock }}"
+                      />
+                    </div>
+                  </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Kategori</label>

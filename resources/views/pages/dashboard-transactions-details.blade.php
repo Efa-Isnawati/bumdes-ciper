@@ -37,8 +37,22 @@
                       <div class="product-title">Date of Transaction</div>
                       <div class="product-subtitle">{{ $transaction->created_at }}</div>
                     </div>
+                    {{-- <div class="col-12 col-md-6">
+                      <div class="product-title">Status Pembayaran</div>
+                      <div class="product-subtitle
+                        @if ($transaction->status == 'PENDING')
+                          text-danger
+                        @elseif ($transaction->status == 'Success')
+                          text-warning
+                        @elseif ($transaction->status == 'Cancel')
+                          text-success
+                        @endif
+                      ">
+                        {{ $transaction->shipping_status }}
+                      </div>
+                   </div>   --}}
                    <div class="col-12 col-md-6">
-                      <div class="product-title">Payment Status</div>
+                      <div class="product-title">Status</div>
                       <div class="product-subtitle
                         @if ($transaction->shipping_status == 'PENDING')
                           text-danger

@@ -147,6 +147,12 @@
                       <input type="number" class="form-control" name="price"/>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Stok</label>
+                      <input type="number" class="form-control" name="stock"/>
+                    </div>
+                  </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Kategori</label>

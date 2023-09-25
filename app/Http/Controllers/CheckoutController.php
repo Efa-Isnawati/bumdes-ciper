@@ -33,6 +33,10 @@ class CheckoutController extends Controller
         foreach ($carts as $cart) {
             $totalPrice += $cart->product->price;
             $productCategories = Category::where('id', $cart->product->categories_id)->get();
+            $product = Product::findOrFail($cart->product->id);
+                if ($product->stock < 1) {
+                    throw new Exception('Product "' . $product->name . '" HABIS.');
+                }
         }
 
         // Proses kode voucher
@@ -111,6 +115,9 @@ class CheckoutController extends Controller
                     'resi' => '',
                     'code' => $trx
                 ]);
+                // Reduce the stock of each product in the cart
+                $product = Product::findOrFail($cart->product->id);
+                $product->decrement('stock', 1); // Reduce stock by 1
             }
 
             // Delete cart data

@@ -96,10 +96,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-8">
+                           <div class="product-stock">
+                                Stok: <span style="font-weight: bold; color: blue;">{{ $product->stock }}</span>
+                                @if ($product->stock > 0)
+                                @else
+                                    <p class="text-danger">STOK HABIS</p>
+                                @endif
                             {!! $product->description !!}
                         </div>
                     </div>
                 </div>
+            </div>
             </section>
            <section class="store-review">
     <div class="container">

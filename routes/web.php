@@ -104,6 +104,7 @@ Route::prefix('admin')
         Route::resource('user', 'App\Http\Controllers\Admin\UserController');
         Route::get('/dashboard/products', [App\Http\Controllers\Admin\DashboardProductsController::class, 'index'])->name('product');
         Route::get('/dashboard/products/create', [App\Http\Controllers\Admin\DashboardProductsController::class, 'create'])->name('product-create');
+        // Route::post('/dashboard/{product}/restock',[App\Http\Controllers\Admin\DashboardProductsController::class, 'restock'])->name('product-restock');
         Route::post('/dashboard/products', [App\Http\Controllers\Admin\DashboardProductsController::class, 'store'])->name('dashboard-product-store');
         Route::get('/dashboard/products/{id}', [App\Http\Controllers\Admin\DashboardProductsController::class, 'details'])->name('dashboard-product-details');
         Route::post('/dashboard/products/{id}', [App\Http\Controllers\Admin\DashboardProductsController::class, 'update'])->name('dashboard-product-update');

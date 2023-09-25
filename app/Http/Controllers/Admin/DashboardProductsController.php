@@ -100,4 +100,28 @@ class DashboardProductsController extends Controller
 
         return redirect()->route('product');
     }
+    public function buy(Product $product)
+{
+    if ($product->stock > 0) {
+        $product->decrement('stock', 1);
+        // Implement the logic to handle the purchase (e.g., create a transaction record, update user balance, etc.)
+        // You can customize this based on your application's requirements.
+        // ...
+        return redirect()->back()->with('success', 'Product purchased successfully.');
+    } else {
+        return redirect()->back()->with('error', 'Product out of stock.');
+    }
+}
+
+    public function restock(Request $request, Product $product)
+{
+    $this->validate($request, [
+        'quantity' => 'required|integer|min:1',
+    ]);
+
+    $quantity = $request->input('quantity');
+    $product->increment('stock', $quantity);
+
+    return redirect()->back()->with('success', 'Product restocked successfully.');
+}
 }
